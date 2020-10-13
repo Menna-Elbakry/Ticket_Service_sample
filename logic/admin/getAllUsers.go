@@ -1,11 +1,9 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
 )
 
-//GetAllUsers to select all users
 func GetAllUsers() {
-	allUsr := &database.Users{}
-	allUsr.GetAllUsers()
+	database.GetAllUsers()
 }

@@ -1,13 +1,15 @@
 package customer
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
+
+	uuid "github.com/satori/go.uuid"
 )
 
-//GetAllUserTickets to select all tickets exist
-func GetAllUserTickets() {
-	newTCT := &database.Tickets{
-		UserID: ID,
+func GetAllCustomerTickets(usrId uuid.UUID) {
+	newTCT := &model.Ticket{
+		UserID: usrId,
 	}
-	newTCT.GetAllCustomerTickets()
+	database.GetAllCustomerTickets(newTCT)
 }

@@ -1,13 +1,13 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
 )
 
-//GetUserByRole to select all users with role = customer
-func GetUserByRole(role string) {
-	newUSR := &database.Users{
-		Role: role,
+func GetUsersByRole() {
+	newUSR := &model.User{
+		Role: Role,
 	}
-	newUSR.GetUserByRole(role)
+	database.GetUsersByRole(newUSR)
 }

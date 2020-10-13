@@ -1,23 +1,21 @@
 package customer
 
 import (
-	"task/database"
-	"time"
+	database "task/database/implementation"
+	"task/model"
 
 	uuid "github.com/satori/go.uuid"
 )
 
-//AddTicket to add new ticket to database
-func AddTicket() {
-	newTCT := &database.Tickets{
+func AddNewTicket() (uuid.UUID, error) {
+	newTCT := &model.Ticket{
 		TicketID:   uuid.NewV4(),
-		UserID:     ID,
-		UserName:   "",
+		UserID:     UserID,
+		UserName:   UserName,
 		Details:    Details,
-		Status:     "unsolved",
-		OperatorID: uuid.Nil,
-		CreatedAt:  time.Now(),
-		UpdatedAt:  time.Now(),
+		Status:     Status,
+		OperatorID: uuid.Must(uuid.FromString("11111111-1111-1111-1111-111111111111")),
 	}
-	newTCT.AddNewTicket()
+	return database.AddNewTicket(newTCT)
+
 }
