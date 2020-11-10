@@ -2,8 +2,9 @@ package admin
 
 import (
 	database "task/database/implementation"
+	"task/model"
 )
 
-func GetAllTickets() {
-	database.GetAllTickets()
+func GetAllTickets() ([]model.Ticket, error) {
+	return database.GetAllTickets()
 }

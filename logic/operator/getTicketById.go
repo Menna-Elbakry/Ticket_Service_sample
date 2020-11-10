@@ -7,9 +7,9 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-func GetTicketById(TId uuid.UUID) (string, error) {
+func GetTicketById(tId uuid.UUID) (string, error) {
 	newTCT := &model.Ticket{
-		TicketID: TId,
+		TicketID: tId,
 	}
 	return database.GetTicketById(newTCT)
 }

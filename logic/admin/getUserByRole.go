@@ -5,9 +5,9 @@ import (
 	"task/model"
 )
 
-func GetUsersByRole() {
+func GetUsersByRole(role model.RoleEnum) ([]model.User, error){
 	newUSR := &model.User{
-		Role: Role,
+		Role: role,
 	}
-	database.GetUsersByRole(newUSR)
+	return database.GetUsersByRole(newUSR)
 }

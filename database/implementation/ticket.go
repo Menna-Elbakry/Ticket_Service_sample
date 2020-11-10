@@ -26,8 +26,8 @@ func GetAllTickets() ([]model.Ticket, error) {
 	return tickets, nil
 }
 
-//GetAllCustomerTickets to select specific user tickets
-func GetAllCustomerTickets(ticket *model.Ticket) ([]model.Ticket, error) {
+//GetAllUserTicketsById to select specific user tickets
+func GetAllUserTicketsById(ticket *model.Ticket) ([]model.Ticket, error) {
 	var ticketEntity []table.Ticket
 	selErr := db.Model(&ticketEntity).
 		Where("user_id=?", ticket.UserID).
@@ -82,14 +82,14 @@ func AddNewTicket(ticket *model.Ticket) (uuid.UUID, error) {
 	_, insertErr := db.Model(table.Ticket{}.Fill(ticket)).Insert()
 	if insertErr != nil {
 		log.Printf("Error While Adding New Ticket Reason:  %v\n", insertErr)
-		// return buffer(), insertErr
+		return uuid.Nil, insertErr
 	}
 	log.Printf("New Ticket Added Successfully .\n Ticket ID: %v", ticket.TicketID)
 	return ticket.TicketID, nil
 }
 
 //DeleteTicket to delete ticket
-func DeleteTicket(ticket *model.Ticket) error {
+func DeleteTicket(ticket *model.Ticket) (uuid.UUID, error) {
 	var ticketEntity table.Ticket
 	_, deleteErr := db.Model(&ticketEntity).
 		Where("ticket_id=?", ticket.TicketID).
@@ -97,14 +97,14 @@ func DeleteTicket(ticket *model.Ticket) error {
 		Delete()
 	if deleteErr != nil {
 		log.Printf("Error While Deleting Ticket. Reason:  %v\n", deleteErr)
-		return deleteErr
+		return uuid.Nil, deleteErr
 	}
 	log.Printf("Successfully Deleted Ticket With ID: %s\n", ticket.TicketID)
-	return nil
+	return ticket.TicketID, nil
 }
 
 //UpdateTicketDetails to update the ticket content
-func UpdateTicketDetails(ticket *model.Ticket) error {
+func UpdateTicketDetails(ticket *model.Ticket) (string, error) {
 	var ticketEntity table.Ticket
 	_, updateErr := db.Model(&ticketEntity).
 		Set("details=?,updated_at=?", ticket.Details, time.Now()).
@@ -113,10 +113,10 @@ func UpdateTicketDetails(ticket *model.Ticket) error {
 		Update()
 	if updateErr != nil {
 		log.Printf("Error While Updating Ticket. Reason:  %v\n", updateErr)
-		return updateErr
+		return " ", updateErr
 	}
 	log.Printf("Ticket Updated Successfully For Username: %v, TicketID: %v, Details: %v \n ", ticket.UserName, ticket.TicketID, ticket.Details)
-	return nil
+	return ticket.Details, nil
 }
 
 //UpdateOperatorIDAndStatus to update the User Name and Password

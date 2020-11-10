@@ -3,11 +3,13 @@ package admin
 import (
 	database "task/database/implementation"
 	"task/model"
+
+	uuid "github.com/satori/go.uuid"
 )
 
-func GetUserById() {
+func GetUserById(uId uuid.UUID) (string, error) {
 	newUSR := &model.User{
-		ID: ID,
+		ID: uId,
 	}
-	database.GetUserById(newUSR)
+	return database.GetUserById(newUSR)
 }

@@ -28,8 +28,8 @@ func GetAllUsers() ([]model.User, error) {
 	return users, nil
 }
 
-//GetUserByID to search for user
-func GetUserById(user *model.User) error {
+//GetUserById to search for user by id
+func GetUserById(user *model.User) (string, error) {
 	var userEntity table.User
 	getErr := db.Model(&userEntity).
 		Where("id=?", user.ID).
@@ -37,12 +37,14 @@ func GetUserById(user *model.User) error {
 		Select()
 	if getErr != nil {
 		log.Printf("Error While Getting User By Id Reason: \n %v", getErr)
-		return getErr
+		return " ", getErr
 	}
 	log.Printf("Get User By Id Successful For \n Name:%v , Email: %v\n ", userEntity.Name, userEntity.Email)
-	return nil
+	//info :=[]string{user.Name, user.Email}
+	return userEntity.Name, nil
 }
 
+//GetUsersByRole to search for user by role
 func GetUserRoleById(user *model.User) (model.RoleEnum, error) {
 	var userEntity table.User
 	getErr := db.Model(&userEntity).
@@ -53,11 +55,11 @@ func GetUserRoleById(user *model.User) (model.RoleEnum, error) {
 		log.Printf("Error While Getting User By Id Reason: \n %v", getErr)
 		return " ", getErr
 	}
-	log.Printf("Get User By Id Successful For \n Role:%v \n ", userEntity.Role)
-	return userEntity.Role, nil
+	log.Printf("Get User By Id Successful For \n Role:%v \n ", user.Role)
+	return user.Role, nil
 }
 
-//GetUserByRole to search for user
+//GetUsersByRole to search for users by Role
 func GetUsersByRole(user *model.User) ([]model.User, error) {
 	var userEntity []table.User
 	getErr := db.Model(&userEntity).
@@ -88,71 +90,77 @@ func AddNewUser(user *model.User) (uuid.UUID, error) {
 }
 
 //DeleteUser to delete user
-func DeleteUser(user *model.User) error {
+func DeleteUser(user *model.User) (uuid.UUID, error) {
 	var userEntity table.User
 	_, deleteErr := db.Model(&userEntity).Where("id=?", user.ID).
 		Returning("id").
 		Delete()
 	if deleteErr != nil {
 		log.Printf("Error While Deleting User. Reason: %v \n", deleteErr)
-		return deleteErr
+		return uuid.Nil, deleteErr
 	}
-	log.Printf("Successfully Deleted User With ID: %v \n", userEntity.ID)
-	return nil
+	log.Printf("Successfully Deleted User With ID: %v \n", user.ID)
+	return user.ID, nil
 }
 
 //UpdateUserPassword to update the password
-func UpdateUserPassword(user *model.User) error {
+func UpdateUserPassword(user *model.User) (string, error) {
 	var userEntity table.User
 	_, updateErr := db.Model(&userEntity).
 		Set("password=?,updated_at=?", user.Password, time.Now()).
+		Returning("name,email").
 		Where("id=?", user.ID).
 		Update()
 	if updateErr != nil {
 		log.Printf("Error While Updating Password. Reason:  %v\n", updateErr)
-		return updateErr
+		return " ", updateErr
 	}
-	log.Printf("Password Updated Successfully For User: %v, Email: %v\n ", userEntity.Name, userEntity.Email)
-	return nil
+	log.Printf("Password Updated Successfully For User: %v, Email: %v\n ", user.Name, user.Email)
+	//info := []string{user.Name, user.Email}
+	return user.Name, nil
 }
 
 //UpdateUsername to modify the user name
-func UpdateUsername(user *model.User) error {
+func UpdateUsername(user *model.User) (string, error) {
 	var userEntity table.User
 	_, updateErr := db.Model(&userEntity).
-		Set("name=?", user.Name).
-		Where("id=?,updated_at=?", user.ID, time.Now()).
+		Set("name=?,updated_at=?", user.Name, time.Now()).
 		Returning("name,email").
+		Where("id=?", user.ID).
 		Update()
 	if updateErr != nil {
 		log.Printf("Error While Updating Name. Reason:  %v\n", updateErr)
-		return updateErr
+		return " ", updateErr
 	}
-	log.Printf("Name Updated Successfully For Email %v, Username : %v\n ", userEntity.Email, userEntity.Name)
-	return nil
+	log.Printf("Name Updated Successfully For Email %v, Username : %v\n ", user.Email, user.Name)
+	// info := []string{user.Name, user.Email}
+	return user.Name, nil
 }
 
 //UpdateUserMail to modify user email
-func UpdateUserMail(user *model.User) error {
+func UpdateUserMail(user *model.User) (string, error) {
 	var userEntity table.User
 	_, updateErr := db.Model(&userEntity).
 		Set("email=?,,updated_at=?", user.Email, time.Now()).
-		Where("id=?", user.ID).
 		Returning("name,email").
+		Where("id=?", user.ID).
 		Update()
 	if updateErr != nil {
 		log.Printf("Error While Updating Reason:  %v\n", updateErr)
-		return updateErr
+		return " ", updateErr
 	}
-	log.Printf("Email Updated Successfully For User: %v, Email: %v\n ", userEntity.Name, userEntity.Email)
-	return nil
+	log.Printf("Email Updated Successfully For User: %v, Email: %v\n ", user.Name, user.Email)
+	//info := []string{user.Name, user.Email}
+	return user.Name, nil
 }
 
 //Login func
 func Login(user *model.User) (uuid.UUID, error) {
 	var userEntity table.User
-	getErr := db.Model(&userEntity).Where("Email=?", user.Email).
-		Returning("id,password").Select()
+	getErr := db.Model(&userEntity).
+		Returning("id,password").
+		Where("Email=?", user.Email).
+		Select()
 	if getErr != nil {
 		log.Printf("Error While Login :  %v\n", getErr)
 		return uuid.Nil, getErr

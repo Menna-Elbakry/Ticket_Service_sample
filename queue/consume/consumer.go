@@ -2,7 +2,7 @@ package consume
 
 import (
 	"log"
-	"task/logic/ticketFunctions"
+	"task/logic/operator"
 	"task/model"
 
 	uuid "github.com/satori/go.uuid"
@@ -15,14 +15,8 @@ func failOnError(err error, msg string) {
 	}
 }
 
-//func BytesToString(b []byte) string {
-//	bh := (*reflect.SliceHeader)(unsafe.Pointer(&b))
-//	sh := reflect.StringHeader{bh.Data, bh.Len}
-//	return *(*string)(unsafe.Pointer(&sh))
-//}
-
 //Consume tyo listen to the queue
-func Consume() {
+func Consume(opId uuid.UUID) {
 
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	failOnError(err, "Failed To Connect To RabbitMQ")
@@ -67,12 +61,12 @@ func Consume() {
 
 			str := string(d.Body)
 			var TId = uuid.Must(uuid.FromString(str))
-			var msg, _ = ticket.GetTicketById(TId)
+			var msg, _ = operator.GetTicketById(TId)
 			log.Printf(" [x] %s", msg)
 
 			response := model.Processing
 
-			ticket.UpdateOperatorIDAndStatus(TId, ticket.OperatorID, response)
+			operator.UpdateOperatorIDAndStatus(TId, opId, response)
 
 			err = ch.Publish(
 				"",        // exchange
@@ -85,7 +79,7 @@ func Consume() {
 					Body:          []byte(response),
 				})
 			failOnError(err, "Failed To Publish The Response")
-			d.Ack(false)
+			d.Ack(true)
 		}
 	}()
 

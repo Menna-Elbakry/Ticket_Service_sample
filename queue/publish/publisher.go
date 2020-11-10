@@ -1,8 +1,12 @@
 package publish
 
 import (
+	"fmt"
 	"log"
 	"math/rand"
+	"os"
+	"time"
+
 	uuid "github.com/satori/go.uuid"
 	"github.com/streadway/amqp"
 )
@@ -47,13 +51,24 @@ func Connect(id uuid.UUID) (res string, err error) {
 	msgs, err := ch.Consume(
 		q.Name, // queue
 		"",     // consumer
-		true,   // auto-ack
+		false,  // auto-ack
 		false,  // exclusive
 		false,  // no-local
-		false,  // no-wait
+		true,   // no-wait
 		nil,    // args
 	)
 	FailOnError(err, "Failed To Register a Consumer")
+	const duration = 3 * time.Second
+	timer := time.NewTimer(duration)
+	for {
+		select {
+		case d := <-msgs:
+			timer.Reset(duration)
+			fmt.Printf("Received a message: %s\n", d.Body)
+		case <-timer.C:
+			os.Exit(1)
+		}
+	}
 
 	corrID := RandomString(32)
 
@@ -77,6 +92,4 @@ func Connect(id uuid.UUID) (res string, err error) {
 		break
 	}
 	return
-
 }
-

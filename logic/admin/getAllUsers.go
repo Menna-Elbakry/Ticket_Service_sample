@@ -2,8 +2,9 @@ package admin
 
 import (
 	database "task/database/implementation"
+	"task/model"
 )
 
-func GetAllUsers() {
-	database.GetAllUsers()
+func GetAllUsers() ([]model.User, error) {
+	return database.GetAllUsers()
 }

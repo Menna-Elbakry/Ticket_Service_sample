@@ -3,12 +3,14 @@ package customer
 import (
 	database "task/database/implementation"
 	"task/model"
+
+	uuid "github.com/satori/go.uuid"
 )
 
-func UpdateUserMail() {
+func UpdateUserMail(id uuid.UUID, mail string) (string, error) {
 	newUSR := &model.User{
-		Email: Email,
-		ID:    ID,
+		Email: mail,
+		ID:    id,
 	}
-	database.UpdateUserMail(newUSR)
+	return database.UpdateUserMail(newUSR)
 }

@@ -1,17 +1,6 @@
 package main
 
-import (
-	"log"
-	"math/rand"
-	"task/logic"
-	"task/logic/admin"
-	"task/logic/customer"
-	"task/logic/operator"
-	"task/model"
-	"task/queue/consume"
-	"task/queue/publish"
-	"time"
-)
+import "task/routes"
 
 var (
 	mail string = "customer@yahoo.com"
@@ -19,57 +8,44 @@ var (
 )
 
 func main() {
+	routes.Server()
 
-	userID, _ := logic.Login(mail, pass)
+	// http.HandleFunc("/admins", routes.Admins)
+	// if err := http.ListenAndServe(":8080", nil); err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	userRole, _ := admin.GetUserRoleById(userID)
+	// userID, _ := logic.Login(mail, pass)
 
-	switch userRole {
-	case model.Admin:
-		log.Println("Tickets")
-		admin.GetAllTickets()
-		log.Println("Users")
-		admin.GetAllUsers()
+	// userRole, _ := admin.GetUserRoleById(userID)
 
-	case model.Operator:
-		consume.Consume()
-		log.Println("Tickets")
-		operator.GetAllOperatorTickets(userID)
+	// switch userRole {
+	// case model.Admin:
+	// 	log.Println("Tickets")
+	// 	admin.GetAllTickets()
+	// 	log.Println("Users")
+	// 	admin.GetAllUsers()
 
-	case model.Customer:
-		rand.Seed(time.Now().UTC().UnixNano())
+	// case model.Operator:
+	// 	consume.Consume()
+	// 	log.Println("Tickets")
+	// 	operator.GetAllOperatorTickets(userID)
 
-		tId, _ := customer.AddNewTicket()
-		msg, _ := customer.GetTicketById(tId)
+	// case model.Customer:
+	// 	rand.Seed(time.Now().UTC().UnixNano())
 
-		log.Printf(" [x] sending (%v)", msg)
-		_, err := publish.Connect(tId)
-		publish.FailOnError(err, "Failed to handle Ticket request")
+	// 	tId, _ := customer.AddNewTicket()
+	// 	msg, _ := customer.GetTicketById(tId)
 
-		log.Println("Tickets")
-		customer.GetAllCustomerTickets(userID)
+	// 	log.Printf(" [x] sending (%v)", msg)
+	// 	_, err := publish.Connect(tId)
+	// 	publish.FailOnError(err, "Failed to handle Ticket request")
 
-	default:
-		log.Println("Error")
-	}
+	// 	log.Println("Tickets")
+	// 	customer.GetAllCustomerTickets(userID)
 
-	//logic.Login()
-	//logic.AddNewUser()
-	//logic.GetUserById()
-	//logic.GetAllUsers()
-	//logic.UpdateUserPass()
-	//logic.GetUsersByRole()
-	//logic.UpdateUserName()
-	//logic.UpdateUserMail()
-	//logic.DeleteUser()
-
-	//ticket.AddNewTicket()
-	//ticket.GetAllTickets()
-	//ticket.GetTicketById()
-	//ticket.GetAllCustomerTickets()
-	//ticket.GetAllOperatorTickets()
-	//ticket.UpdateOperatorIDAndStatus()
-	//ticket.UpdateTicketDetails()
-	//ticket.DeleteTicket()
+	// default:
+	// 	log.Println("Error")
+	// }
 
 }

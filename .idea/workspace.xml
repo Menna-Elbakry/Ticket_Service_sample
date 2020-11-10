@@ -27,71 +27,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2957851d-f538-42d4-994f-84aa76e1aabb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/task.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/getAllOperatorTicket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/getTicketById.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/operatorVar.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/updateTicketStstus.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/updateUserMail.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/updateUserName.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/operator/updateUserPass.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/addNewTicket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/deleteTicket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/getAllCustomerTickets.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/getAllOperatorTicket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/getAllTickets.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/getTicketById.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/ticket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/updateTicketDetails.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/ticketFunctions/updateTicketStstus.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/addUser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/deleteUser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/getAllUsers.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/getUserById.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/getUserByRole.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/getUserRoleById.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/updateUserMail.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/updateUserName.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/updateUserPass.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logic/userFunctions/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queue/consume/consumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/queue/publish/publisher.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/connection.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/tickets.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/users.go" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/admin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/implementation/ticket.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/implementation/ticket.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/implementation/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/implementation/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/admin/addNewTicket.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/addNewTicket.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/addUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/addUser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/admin/adminFuncs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/admin/deleteTicketById.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/admin/deleteTicket.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/deleteTicket.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/deleteUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/deleteUser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/admin/getAllCustomerTickets.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getAllCustomerTickets.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/admin/getAllOperatorTicket.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getAllOperatorTicket.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/getAllTickets.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getAllTickets.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/getAllUsers.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getAllUsers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/admin/getTicketById.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getTicketById.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/getUserById.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getUserById.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/getUserByRole.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/getUserByRole.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/updateTicketDetails.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/updateTicketDetails.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/admin/updateTicketStatus.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/admin/updateTicketStstus.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/updateTicketStstus.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/updateUserMail.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/updateUserMail.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/updateUserName.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/updateUserName.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/admin/updateUserPass.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/admin/updateUserPass.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/customer/addNewTicket.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/addNewTicket.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/customer/addUserCustomer.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/customer/customerFuncs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/customer/deleteTicketById.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/customer/addUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/addUser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/customer/deleteTicket.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/deleteTicket.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/customer/deleteUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/deleteUser.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/customer/getAllCustomerTickets.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/getAllCustomerTickets.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/customer/updateCustomer.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/customer/updateTicketDetails.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/updateTicketDetails.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/operator/getAllOperatorTickets.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/operator/operatorFuncs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/operator/updateOperator.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/operator/updateTicketStatus.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/customer/updateUserMail.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/updateUserMail.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/customer/updateUserName.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/updateUserName.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/customer/updateUserPass.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/customer/updateUserPass.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/operator/getAllOperatorTicket.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/operator/getAllOperatorTicket.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/operator/updateTicketStstus.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/operator/updateTicketStstus.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/operator/updateUserMail.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/operator/updateUserMail.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/operator/updateUserName.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/operator/updateUserName.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/operator/updateUserPass.go" beforeDir="false" afterPath="$PROJECT_DIR$/logic/operator/updateUserPass.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/login/login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task.rar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,10 +158,10 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1601830982286">
+    <state x="552" y="178" width="816" height="774" key="#Intentions" timestamp="1603475633973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" width="816" height="729" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1601830982286" />
+    <state x="552" y="178" width="816" height="774" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1603475633973" />
     <state x="414" y="175" width="1092" height="820" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602511765453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -204,42 +174,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="822" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1602020653487" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601553745666">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603457922518">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601553745666" />
-    <state width="1877" height="216" key="GridCell.Tab.0.bottom" timestamp="1602512247632">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603457922518" />
+    <state width="1877" height="220" key="GridCell.Tab.0.bottom" timestamp="1604234232748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602512247632" />
-    <state width="1877" height="216" key="GridCell.Tab.0.center" timestamp="1602512247632">
+    <state width="1877" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232748" />
+    <state width="1877" height="220" key="GridCell.Tab.0.center" timestamp="1604234232748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602512247632" />
-    <state width="1877" height="216" key="GridCell.Tab.0.left" timestamp="1602512247632">
+    <state width="1877" height="220" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232748" />
+    <state width="1877" height="220" key="GridCell.Tab.0.left" timestamp="1604234232747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602512247632" />
-    <state width="1877" height="216" key="GridCell.Tab.0.right" timestamp="1602512247632">
+    <state width="1877" height="220" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232747" />
+    <state width="1877" height="220" key="GridCell.Tab.0.right" timestamp="1604234232748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602512247632" />
-    <state width="1877" height="220" key="GridCell.Tab.1.bottom" timestamp="1602412312453">
+    <state width="1877" height="220" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232748" />
+    <state width="1877" height="220" key="GridCell.Tab.1.bottom" timestamp="1604234232567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602412312453" />
-    <state width="1877" height="220" key="GridCell.Tab.1.center" timestamp="1602412312453">
+    <state width="1877" height="220" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232567" />
+    <state width="1877" height="220" key="GridCell.Tab.1.center" timestamp="1604234232567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602412312453" />
-    <state width="1877" height="220" key="GridCell.Tab.1.left" timestamp="1602412312453">
+    <state width="1877" height="220" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232567" />
+    <state width="1877" height="220" key="GridCell.Tab.1.left" timestamp="1604234232567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602412312453" />
-    <state width="1877" height="220" key="GridCell.Tab.1.right" timestamp="1602412312453">
+    <state width="1877" height="220" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232567" />
+    <state width="1877" height="220" key="GridCell.Tab.1.right" timestamp="1604234232567">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="220" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602412312453" />
+    <state width="1877" height="220" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604234232567" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1602160815818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -259,6 +229,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/routes/admin/admin.go</url>
+          <line>112</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint suspend="NONE" type="DlvErrorBreakpoint" />
       </default-breakpoints>

@@ -8,14 +8,14 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-func AddNewUser() {
-	hash, _ := logic.HashPassword(Pass)
+func AddNewUser(name string, pass string, mail string) (uuid.UUID, error) {
+	hash, _ := logic.HashPassword(pass)
 	newUSR := &model.User{
 		ID:       uuid.NewV4(),
-		Name:     Name,
-		Email:    Email,
+		Name:     name,
+		Email:    mail,
 		Password: hash,
 		Role:     model.Customer,
 	}
-	database.AddNewUser(newUSR)
+	return database.AddNewUser(newUSR)
 }

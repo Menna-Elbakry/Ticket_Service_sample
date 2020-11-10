@@ -3,11 +3,13 @@ package admin
 import (
 	database "task/database/implementation"
 	"task/model"
+
+	uuid "github.com/satori/go.uuid"
 )
 
-func DeleteTicket() {
+func DeleteTicket(tId uuid.UUID) (uuid.UUID, error) {
 	newTCT := &model.Ticket{
-		TicketID: TID,
+		TicketID: tId,
 	}
-	database.DeleteTicket(newTCT)
+	return database.DeleteTicket(newTCT)
 }

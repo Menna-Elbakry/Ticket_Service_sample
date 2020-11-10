@@ -7,9 +7,9 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-func GetAllOperatorTickets(OpId uuid.UUID) {
+func GetAllOperatorTickets(OpId uuid.UUID) ([]model.Ticket,error){
 	newTCT := &model.Ticket{
 		OperatorID: OpId,
 	}
-	database.GetAllOperatorTickets(newTCT)
+	return database.GetAllOperatorTickets(newTCT)
 }
