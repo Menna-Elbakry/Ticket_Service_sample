@@ -1,13 +1,15 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
+
+	uuid "github.com/satori/go.uuid"
 )
 
-//GetTicketByID to select specific ticket
-func GetTicketByID() {
-	newTCT := &database.Tickets{
-		TicketID: Ticket_ID,
+func GetTicketById(TId uuid.UUID) (string, error) {
+	newTCT := &model.Ticket{
+		TicketID: TId,
 	}
-	newTCT.GetTicketByID()
+	return database.GetTicketById(newTCT)
 }

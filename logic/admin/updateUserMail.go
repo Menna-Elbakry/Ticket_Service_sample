@@ -1,14 +1,14 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
 )
 
-//UpdateUserMail to update user email
 func UpdateUserMail() {
-	usr := &database.Users{
-		ID:    ID,
+	newUSR := &model.User{
 		Email: Email,
+		ID:    ID,
 	}
-	usr.UpdateUserMail()
+	database.UpdateUserMail(newUSR)
 }

@@ -1,14 +1,14 @@
 package customer
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
 )
 
-//UpdateTicketDetailsByID to update ticket content
-func UpdateTicketDetailsByID() {
-	newTCT := &database.Tickets{
-		TicketID: Ticket_ID,
+func UpdateTicketDetails() {
+	newTCT := &model.Ticket{
+		TicketID: TID,
 		Details:  Details,
 	}
-	newTCT.UpdateTicketDetails()
+	database.UpdateTicketDetails(newTCT)
 }

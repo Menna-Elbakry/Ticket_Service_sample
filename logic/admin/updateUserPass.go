@@ -1,15 +1,16 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/logic"
+	"task/model"
 )
 
-//UpdateUserPassword to update user password
-func UpdateUserPassword() {
-	hash, _ := HashPassword(Passwd)
-	newUSR := &database.Users{
-		ID:       ID,
+func UpdateUserPass() {
+	hash, _ := logic.HashPassword(Pass)
+	newUSR := &model.User{
 		Password: hash,
+		ID:       ID,
 	}
-	newUSR.UpdateUserPassword()
+	database.UpdateUserPassword(newUSR)
 }

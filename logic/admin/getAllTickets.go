@@ -1,11 +1,9 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
 )
 
-//GetAllTickets to select all tickets exist
 func GetAllTickets() {
-	newTCT := &database.Tickets{}
-	newTCT.GetAllTickets()
+	database.GetAllTickets()
 }

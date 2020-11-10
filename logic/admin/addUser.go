@@ -1,23 +1,21 @@
 package admin
 
 import (
-	"task/database"
-	"time"
+	database "task/database/implementation"
+	"task/logic"
+	"task/model"
 
 	uuid "github.com/satori/go.uuid"
 )
 
-//AddNewUser to insert new user to database
 func AddNewUser() {
-	hash, _ := HashPassword(Passwd)
-	newUSR := &database.Users{
-		ID:        uuid.NewV4(),
-		Name:      "lily",
-		Email:     "lily@yahoo.com",
-		Password:  hash,
-		Role:      "customer",
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+	hash, _ := logic.HashPassword(Pass)
+	newUSR := &model.User{
+		ID:       uuid.NewV4(),
+		Name:     Name,
+		Email:    Email,
+		Password: hash,
+		Role:     Role,
 	}
-	newUSR.AddNewUser()
+	database.AddNewUser(newUSR)
 }

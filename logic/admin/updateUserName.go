@@ -1,17 +1,14 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
 )
 
-//UpdateUserName to update user name
 func UpdateUserName() {
-	hash, _ := HashPassword(Passwd)
-	usr := &database.Users{
-		ID:       ID,
-		Password: hash,
-		Name:     Name,
-		Email:    Mail,
+	newUSR := &model.User{
+		Name: Name,
+		ID:   ID,
 	}
-	usr.UpdateUsername()
+	database.UpdateUsername(newUSR)
 }

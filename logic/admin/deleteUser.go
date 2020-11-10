@@ -1,14 +1,13 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
 )
 
-//DeleteUser to delete user
 func DeleteUser() {
-
-	newUSR := &database.Users{
+	newUSR := &model.User{
 		ID: ID,
 	}
-	newUSR.DeleteUser()
+	database.DeleteUser(newUSR)
 }

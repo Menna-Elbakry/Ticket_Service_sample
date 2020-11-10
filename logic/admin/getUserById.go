@@ -1,13 +1,13 @@
 package admin
 
 import (
-	"task/database"
+	database "task/database/implementation"
+	"task/model"
 )
 
-//GetUserByID to select specific User
-func GetUserByID() {
-	usr := &database.Users{
+func GetUserById() {
+	newUSR := &model.User{
 		ID: ID,
 	}
-	usr.GetUserByID()
+	database.GetUserById(newUSR)
 }

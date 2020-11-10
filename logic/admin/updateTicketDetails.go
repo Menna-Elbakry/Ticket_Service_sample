@@ -1,12 +1,14 @@
 package admin
 
-import "task/database"
+import (
+	database "task/database/implementation"
+	"task/model"
+)
 
-//UpdateTicketDetails to update ticket content
 func UpdateTicketDetails() {
-	newTCT := &database.Tickets{
-		TicketID: Ticket_ID,
+	newTCT := &model.Ticket{
+		TicketID: TID,
 		Details:  Details,
 	}
-	newTCT.UpdateTicketDetails()
+	database.UpdateTicketDetails(newTCT)
 }
